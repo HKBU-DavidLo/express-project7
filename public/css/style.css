@@ -1,0 +1,314 @@
+    /* all */
+    :root {
+        /*--main-text-color: #f95;
+        --main-tint-color: #fca;*/
+        --main-text-color: #501b15;
+        --main-tint-color: #df8e85;
+    }
+
+    body {
+        color:#000000; 
+        font-family:"微软雅黑"; 
+        font-size:16px;
+    }
+
+    .translate {
+        font-size: 13px;
+    }
+
+    .about-banner-box {
+        width: 100%;
+        height: 45vh;
+        background: linear-gradient(rgba(256, 153, 85, .1), rgba(256, 153, 85, .25)), url("../img/ban_about.png") no-repeat;
+        background-size: cover;
+        padding: 0;
+    }
+
+    .text-height-1 {
+        line-height: 1.7rem;
+    }
+
+    /* nav-bar */
+
+    .nav-menu {
+        transition: all .7s;
+    }
+
+     .menu-item {
+        transition: color .5s;
+    }
+
+    .menu-item:hover {
+        /*color:rgba(255, 174, 0, 0.85) !important; */
+        color: rgba(21, 74, 80, 0.85) !important;
+        font-weight: bold;
+        border-bottom: 5px solid var(--main-text-color);
+    }
+
+
+    .nav-active {
+        border-bottom: 5px solid var(--main-text-color);
+    }
+
+    .custom-navbar {
+        padding: 5px 52px;
+        background: linear-gradient(rgba(255, 153, 85, 0), rgba(255, 153, 85, .15));
+    }
+
+    .card-image {
+        min-height: 500px;
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+    
+    .btn-custom {
+        background-color: var(--main-text-color);
+        color: #eee;
+    }
+    /* end of nav-bar */
+
+    /* end of all */
+    /* Carousel */
+    .carousel-indicators .active{
+        background-color: var(--main-text-color);
+    }
+
+    .carousel-indicators li {
+        width: 15px;
+        height: 15px;
+        margin: 0 10px;
+        border-radius: 100%;
+    }
+
+    .carousel-control-next-icon:hover {
+        background-color: var(--main-text-color);
+    }
+
+    .carousel-control-prev-icon:hover {
+        background-color: var(--main-text-color);
+    }
+
+    /* end of carousel */
+
+    /* title */
+
+    .underline {
+        width: 160px;
+        border: 4px solid var(--main-text-color);
+        margin: auto;
+    }
+
+    /* end of title */
+
+    /* mission */
+
+    .dl-i {
+        color:var(--main-text-color);
+        transition: all .5s;
+    }
+
+    .dl-i:hover {
+        color: purple;
+    }
+    /* end of mission */
+
+    /* contact */
+
+    .input, textarea {
+        background: transparent;
+        border-color: transparent;
+        border-bottom: 2px solid darkgrey;
+        border-radius: 0;
+        transition: all .8s;
+    }
+
+    .input:focus, textarea:focus {
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+        color: black;
+        border-bottom: 2px solid var(--main-text-color);
+    }
+
+    .contact-submit-btn {
+        background: var(--main-text-color);
+        color: #eee;
+        transition: all .3s;
+    }
+
+    .contact-submit-btn:hover {
+        background: var(--main-tint-color);
+        transform: translateY(-3px);
+    }
+
+    .contact-reset-btn {
+        border: 1px solid var(--main-text-color);
+        color: var(--main-text-color);
+        transition: all .3s;
+    }
+
+    .contact-reset-btn:hover {
+        border: 1px solid var(--main-tint-color);
+        color: var(--main-tint-color);
+        transform: translateY(-3px);
+    }
+
+    .label {
+        color: darkgrey;
+        display: block;
+        margin-top: -72px;
+        margin-left: 4px;
+        font-size: 13px;
+        transition: all .3s;
+    }
+
+    .ta-label{
+        color: darkgrey;
+        display: block;
+        margin-top: -102px;
+        margin-left: 4px;
+        font-size: 13px;
+        transition: all .3s;
+    }
+
+    .input:placeholder-shown + .label {
+        transform: translate(20px, 20px);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    textarea:placeholder-shown + .ta-label {
+        transform: translate(20px, 0px);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .declare-text {
+        font-size: 8px;
+        color: drakgrey;
+    }
+
+    /* end of contact */
+
+    /* footer */
+
+    footer a {
+        color: lightgrey;
+    }
+
+    footer a:hover {
+        color: white;
+    }
+
+    .disclaim {
+        color: lightgrey;
+        font-size: 12px;
+    }
+
+    /* end of footer */
+
+    /* About Page */
+
+    /* certificates */
+
+    div.polaroid {
+        width: 80%;
+        background-color: inherit;
+        box-shadow: 0 3px 6px - rgba(0, 0, 0, 0.2), 0 4px 16px 0 rgba(0, 0, 0, 0.19);
+        margin-bottom: 20px;
+    }
+
+    .cert-img {
+        width: 100%;
+        height: 30%;
+    }
+
+    div.cert-container {
+        text-align: center;
+        padding: 16px;
+    }
+    /* end of about */
+
+    /* project page */
+
+    .container .title {
+        font-size: 34px;
+        font-weight: bold;
+        color: #000;
+        text-align: center;
+        padding-bottom: 28px;
+        margin-top: 50px;
+    }
+
+    .card .project-head {
+        background: var(--main-text-color);
+        background: linear-gradient(90deg, var(--main-text-color), white);
+        padding: 5px 0 5px 18px;
+        min-height: 78px;
+        display: block;
+        color: #f7e4e2;
+        /*color: #8855ff;*/
+        font-weight: normal;
+        font-size: 20px;
+    }
+
+    .project-detail {
+        padding-left: 40px;
+        font-size: 1.1rem;
+        vertical-align: middle;
+    }
+
+    /* end of project page */
+
+    .services-card-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .service-card {
+        width: 100%;
+        box-sizing: border-box;
+        border: none;
+    }
+
+    @media (min-width: 768px) {
+        .services-card-container {
+            flex-direction: row;
+        }
+
+        .service-card {
+            width: 25%;
+            box-sizing: border-box;
+            border: none;
+        }
+    }
+
+    .emp-box {
+        background: none;
+        width: 100%;
+        height: 72px;
+        border-bottom: 1.25px solid black;
+        margin-bottom: 81px;
+    }
+
+    /* About US */
+
+    /* nav-tab accordion */
+
+    h4 .card-title {
+        margin: 0;
+        font-family: "Open Sans";
+        font-size: 1rem;
+    }
+
+    .card-header {
+        padding: 0;
+    }
+
+    .client-logo {
+        max-width: 200px;
+        max-height: 120px;
+        margin: 50px;
+    }
+    /* https://coderatings.io/snippet/296/bootstrap-4-responsive-tabs-to-accordions */

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang>
+    <head>
+        <meta charset="UTF-8">
+        <title>Richwell IR Administration</title>
+        <link rel="Shortcut Icon" href="/img/favicon-rw.ico" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,user-scalable=no" />
+        <link rel="stylesheet" text="text/css" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" text="text/css" href="/css/style.css" />
+        <style>
+            .top-bar {
+                background-color: #bb3131;
+                color: #b0bb19;
+                height: 100px;
+                padding: 20px 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="top-bar">
+            <h3>Please confirm for deletion:</h3>
+        </div>
+        <p>Date: <%= document.docDate.slice(0,4) %>-<%= document.docDate.slice(4,6) %>-<%= document.docDate.slice(6) %></p>
+        <p>Title: <%= document.docEngTitle %></p>
+        <p>docType: <%= document.docType %></p>
+        <hr>
+        <form action="/rw-admin/delete-post/<%= document._id %>" method="post">
+            <div class="form-group">
+                
+                <button type="submit" class="btn btn-warning">Confirm Delete</button>
+            </div>
+        </form>
+        <button id="backButton" class="btn btn-light">Go Back</button>
+
+        <form action="/rw-admin/logout" method="POST">
+            <button type="submit" class="my-2 mx-4 btn btn-warning">Logout</button>
+        </form>
+        
+        <script src="/js/goback.js"></script>
+    </body>
+</html>
+    

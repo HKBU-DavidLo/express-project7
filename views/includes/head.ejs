@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang>
+    <head>
+        <meta charset="UTF-8">
+        <title><%= pageTitle %></title>
+        <meta name="keywords" content="網站關鍵字" />
+        <meta name="description" content="網站描述" />
+        <link rel="Shortcut Icon" href="/img/favicon-rw.ico" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,user-scalable=no" />
+        <link rel="stylesheet" text="text/css" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" text="text/css" href="/css/style.css" />
+        <script src="/js/all.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid mb-5">
+            <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top nav-menu flex-md-column flex-lg-row">
+                <a href="/<%= lang %>/index" class="navbar-brand ml-sm-2 ml-md-3 ml-lg-5">
+                    <img src="/img/landrich_brand.png" class="d-none d-md-block" alt="RW regular logo">
+                    <img src="/img/landrich-sm.png" class="d-md-none" alt="RW smaller logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav text-uppercase ml-auto mr-4">
+                        <li class="nav-item">
+                            <a href="/<%= lang %>/index" class="nav-link menu-item <%= path === '/' ? 'nav-active' : '' %>"><%= __('home') %></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/<%= lang %>/about" class="nav-link menu-item <%= path === '/about' ? 'nav-active' : '' %>"><%= __('about') %></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/<%= lang %>/services" class="nav-link menu-item <%= path === '/services' ? 'nav-active' : '' %>"><%= __('services') %></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/<%= lang %>/projects" class="nav-link menu-item <%= path === '/projects' ? 'nav-active' : '' %>"><%= __('projects') %></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/<%= lang %>/investors" class="nav-link menu-item <%= path === '/investors' ? 'nav-active' : '' %>"><%= __('investors') %></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/<%= lang %>/contact" class="nav-link menu-item <%= path === '/contact' ? 'nav-active' : '' %>"><%= __('contact') %></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="nav-item"><a href="/zh_hk<%= path %>" class="nav-link translate menu-item">繁</a></li>
+                        <li class="nav-item"><a href="/zh_cn<%= path %>" class="nav-link translate menu-item">簡</a></li>
+                        <li class="nav-item"><a href="/en<%= path %>" class="nav-link translate menu-item">EN</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>

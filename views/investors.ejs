@@ -1,0 +1,182 @@
+<%- include('./includes/head.ejs') %>
+
+<div class="jumbotron p-0">
+    <img class="img-fluid" src="../img/ban_ir.png">
+</div>
+
+<div class="container-fluid p-0">
+    <h1 class="text-uppercase text-center mb-4"><%= __('Investor Relations') %></h1>
+</div>
+
+<section class="bg-white px-4 py-5">
+    <div class="container">
+        <ul class="nav nav-tabs nav-justified flex-column flex-md-row" role="tablist">
+            <li class="nav-item">
+                <a href="#announcements" class="nav-link"  data-toggle="tab" role="tab"><%= __('Announcements') %></a>
+            </li>
+            <li class="nav-item">
+                <a href="#circulars" class="nav-link" data-toggle="tab" role="tab"><%= __('Circulars') %></a>
+            </li>
+            <li class="nav-item">
+                <a href="#reports" class="nav-link" data-toggle="tab" role="tab"><%= __('Financials') %></a>
+            </li>
+            <li class="nav-item">
+                <a href="#returns" class="nav-link" data-toggle="tab" role="tab"><%= __('Other Returns') %></a>
+            </li>
+            <li class="nav-item">
+                <a href="#prospectus" class="nav-link" data-toggle="tab" role="tab"><%= __('Prospectus') %></a>
+            </li>
+            <li class="nav-item">
+                <a href="#governance" class="nav-link" data-toggle="tab" role="tab"><%= __('CG') %></a>
+            </li>
+        </ul>
+        <div class="tab-content responsive px-4">
+            <div class="tab-pane active" id="announcements" role="tabpanel">
+                <div class="container-fluid">
+                    <div class="row mt-3">
+                        <div class="col py-3">
+                            <h4 style="color: #007c89;"><%= __('Announcements') %></h4>
+                            <table cellpadding="0" cellspacing="0" style="width: 650px; border: 0;" class="table mx-auto my-4">     
+                                <thead style="font-weight: bold; margin-bottom: 20px;">
+                                    <td style="width: 120px;"><%= __('Date') %></td>
+                                    <td style="width: 480px;"><%= __('Title') %></td>
+                                </thead>
+                                <tbody>
+                                    <% announcements.forEach(function(announcement) { %>
+                                        <tr>
+                                            <td style="width: 120px;"><%= announcement.docDate.slice(0,4) %>-<%= announcement.docDate.slice(4,6) %>-<%= announcement.docDate.slice(6) %></td>
+                                            <td style="width: 480px;"><a href="<%= announcement[docUrl] %>"><%= announcement[docTitle] %></a></td>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="circulars" role="tabpanel">
+                <div class="container-fluid">
+                    <div class="row mt-3">
+                        <div class="col py-3">
+                            <h4 style="color: #007c89;"><%= __('Circulars') %></h4>
+                            <table cellpadding="0" cellspacing="0" style="width: 650px; border: 0;" class="table mx-auto my-4">     
+                                <thead style="font-weight: bold; margin-bottom: 20px;">
+                                    <td style="width: 120px;"><%= __('Date') %></td>
+                                    <td style="width: 480px;"><%= __('Title') %></td>
+                                </thead>
+                                <tbody>
+                                    <% circulars.forEach(function(circular) { %>
+                                        <tr>
+                                            <td style="width: 120px;"><%= circular.docDate.slice(0,4) %>-<%= circular.docDate.slice(4,6) %>-<%= circular.docDate.slice(6) %></td>
+                                            <td style="width: 480px;"><a href="<%= circular[docUrl] %>"><%= circular[docTitle] %></a></td>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="reports" role="tabpanel">
+                <div class="container-fluid">
+                    <div class="row mt-3">
+                        <div class="col py-3">
+                            <h4 style="color: #007c89;"><%= __('Financials') %></h4>
+                            <table cellpadding="0" cellspacing="0" style="width: 650px; border: 0;" class="table mx-auto my-4">     
+                                <thead style="font-weight: bold; margin-bottom: 20px;">
+                                    <td style="width: 120px;"><%= __('Date') %></td>
+                                    <td style="width: 480px;"><%= __('Title') %></td>
+                                </thead>
+                                <tbody>
+                                    <% financials.forEach(function(financial) { %>
+                                        <tr>
+                                            <td style="width: 120px;"><%= financial.docDate.slice(0,4) %>-<%= financial.docDate.slice(4,6) %>-<%= financial.docDate.slice(6) %></td>
+                                            <td style="width: 480px;"><a href="<%= financial[docUrl] %>"><%= financial[docTitle] %></a></td>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="returns" role="tabpanel">
+                <div class="container-fluid">
+                    <div class="row mt-3">
+                        <div class="col py-3">
+                            <h4 style="color: #007c89;"><%= __('Other Returns') %></h4>
+                            <table cellpadding="0" cellspacing="0" style="width: 650px; border: 0;" class="table mx-auto my-4">     
+                                <thead style="font-weight: bold; margin-bottom: 20px;">
+                                    <td style="width: 120px;"><%= __('Date') %></td>
+                                    <td style="width: 480px;"><%= __('Title') %></td>
+                                </thead>
+                                <tbody>
+                                    <% returns.forEach(function(document) { %>
+                                        <tr>
+                                            <td style="width: 120px;"><%= document.docDate.slice(0,4) %>-<%= document.docDate.slice(4,6) %>-<%= document.docDate.slice(6) %></td>
+                                            <td style="width: 480px;"><a href="<%= document[docUrl] %>"><%= document[docTitle] %></a></td>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="prospectus" role="tabpanel">
+                <div class="container-fluid">
+                    <div class="row mt-3">
+                        <div class="col py-3">
+                            <h4 style="color: #007c89;"><%= __('Prospectus') %></h4>
+                            <table cellpadding="0" cellspacing="0" style="width: 650px; border: 0;" class="table mx-auto my-4">     
+                                <thead style="font-weight: bold; margin-bottom: 20px;">
+                                    <td style="width: 120px;"><%= __('Date') %></td>
+                                    <td style="width: 480px;"><%= __('Title') %></td>
+                                </thead>
+                                <tbody>
+                                    <% prospectuses.forEach(function(prospectus) { %>
+                                        <tr>
+                                            <td style="width: 120px;"><%= prospectus.docDate.slice(0,4) %>-<%= prospectus.docDate.slice(4,6) %>-<%= prospectus.docDate.slice(6) %></td>
+                                            <td style="width: 480px;"><a href="<%= prospectus[docUrl] %>"><%= prospectus[docTitle] %></a></td>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="governance" role="tabpanel">
+                <div class="container-fluid">
+                    <div class="row mt-3">
+                        <div class="col py-3">
+                            <h4 style="color: #007c89;"><%= __('CG') %></h4>
+                            <h6><%= __('Board Committees') %></h6>
+                            <ul class="list-unstyled">
+                                <li><span class="mx-3"><i class="fas fa-chevron-right text-warning"></i></span><a href="/files/cg/AC_ref_201019.pdf" class="text-secondary"><%= __('AC ToR') %></a></li>
+                                <li><span class="mx-3"><i class="fas fa-chevron-right text-warning"></i></span><a href="/files/cg/NC_ref_201019.pdf" class="text-secondary"><%= __('NC ToR') %></a></li>
+                                <li><span class="mx-3"><i class="fas fa-chevron-right text-warning"></i></span><a href="/files/cg/RC_ref_201019.pdf" class="text-secondary"><%= __('RC ToR') %></a></li>
+                            </ul>
+                            <ul class="list-unstyled">
+                                <li><a href="/files/cg/dir_roles_201019.pdf" class="text-secondary"><%= __('Director roles and functions') %></a></li>
+                                <li><a href="/files/cg/mna_201019.pdf" class="text-secondary"><%= __('MnA') %></a></li>
+                                <li><a href="/files/cg/dir_nom_201019.pdf" class="text-secondary"><%= __('Dir Nom') %></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="emp-box"></div>
+    </div>
+</section>
+
+<%- include('./includes/end.ejs') %>

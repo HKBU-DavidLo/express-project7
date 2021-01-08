@@ -1,0 +1,60 @@
+<%- include('./includes/head.ejs') %>
+
+<!-- Services Section -->
+<div class="jumbotron p-0">
+    <img class="img-fluid" src="../img/ban-services.jpg">
+</div>
+
+<div class="container text-center">
+    <h1 class="pb-2"><%= __('CEBC') %></h1>
+    <p><%= __('our target') %></p>
+</div>
+
+<!-- service cards (in flexbox) -->
+<!-- upper row -->
+<div class="container mx-auto">
+    <div class="services-card-container">
+        <div class="card my-3 service-card">
+            <div class="card-body text-center">
+                <h4 class="card-title mb-3" style="color: #007c89;"><%= __('RnD') %></h4>
+                <p class="card-text mb-2"><%= __('RnD des') %></p>
+            </div>
+        </div>
+        <div class="card my-3 service-card">
+            <div class="card-body text-center">
+                <h4 class="card-title mb-3" style="color: #007c89;"><%= __('SF') %></h4>
+                <p class="card-text mb-2"><%= __('SF des') %></p>
+            </div>
+        </div>
+        <div class="card my-3 service-card">
+            <div class="card-body text-center">
+                <h4 class="card-title mb-3" style="color: #007c89;"><%= __('Build Con') %></h4>
+                <p class="card-text mb-2"><%= __('Build Con des') %></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- lower row -->
+<div class="container mx-auto">
+    <div class="services-card-container">
+        <div class="card my-3 service-card">
+            <div class="card-body text-center">
+                <h4 class="card-title mb-3" style="color: #007c89;"><%= __('Main Contractor') %></h4>
+                <p class="card-text mb-2"></p><%= __('Main Con des') %>
+            </div>
+        </div>
+        <div class="card my-3 service-card">
+            <div class="card-body text-center">
+                <h4 class="card-title mb-3" style="color: #007c89;"><%= __('Subcontractor') %></h4>
+                <p class="card-text mb-2"><%= __('subcon des') %></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4">
+    <div class="emp-box"></div>
+</div>
+<!-- end of service cards -->
+<!-- end of services section -->
+
+<%- include('./includes/end.ejs') %>

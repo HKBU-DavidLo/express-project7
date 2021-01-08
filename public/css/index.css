@@ -1,0 +1,48 @@
+@charset "utf-8";
+.index-banner{ position: relative;}
+.index-banner .arrow{ position: absolute; top: 50%; margin-top: -27px; z-index: 80;}
+.index-banner .arrow-left{ left: 5%;}
+.index-banner .arrow-right{ right: 5%;}
+.index-banner .index-txt{ height: 160px; background: rgba(0,0,0,.4); position: absolute; bottom: 0; left: 0; width: 100%; z-index: 80;}
+.index-banner .index-txt p{ color: #fff; font-size: 20px; font-weight: bold; padding: 5px 0;}
+
+/* 小于768px 的屏幕*/
+@media (max-width: 768px) {
+	.index-info{ padding-top: 10px; padding-bottom: 10px;}
+	.index-banner .arrow img{ height: 26px;}
+	.index-banner .arrow{ margin-top: -13px;}
+	.index-info .col-sm-4, .index-info .table-box{ height: 100px;}
+	.index-info .tit{ font-size: 16px; margin-top: 15px}
+	.index-info .txt{ font-size: 14px;}
+	
+
+	.about .txt{ font-size: 14px; width: 100%; padding: 0 15px; margin-top: 15px;}
+	.about{ height: auto; padding-bottom: 25px;}
+	.about.bg1{ background-size: cover;}
+	
+	.tool .table-box{ height: 120px; overflow: hidden; margin-bottom:5px ;}
+	/*.tool .table-box img{ width: 50%; max-height: 100px;}*/
+	.tool-tit,.tool-tip{ font-size: 16px;}
+	.tool .item .txt{ font-size: 12px;}
+	.tool .item{ height: 280px; padding-bottom: 0;}
+	#teamOwl .table-box{ height: 150px;}
+	#teamOwl .table-box img{ width: 110px;}
+	#teamOwl .table-box .table-middle{background-size: 120px;}
+	#teamOwl .item{ padding-top: 5px;}
+	#teamOwl .item .txt{ font-size: 14px; height: 45px; overflow: hidden;}
+	#teamOwl .item .name{ height: 35px; line-height: 35px; font-size: 15px;}
+	
+}
+
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: 768px) {
+	
+}
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media (min-width: 992px) {
+	
+}
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media (min-width: 1200px) {
+	
+}

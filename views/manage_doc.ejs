@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang>
+    <head>
+        <meta charset="UTF-8">
+        <title>Richwell Public Administration</title>
+        <link rel="Shortcut Icon" href="/img/favicon-rw.ico" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,user-scalable=no" />
+        <link rel="stylesheet" text="text/css" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" text="text/css" href="/css/style.css" />
+        <style>
+            .top-bar {
+                background-color: #22a52d;
+                color: #e6d81a;
+                height: 80px;
+                padding: 20px 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="top-bar">
+        <h3>Published <%= title %></h3>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% documents.forEach( function(document) { %>
+                    <tr>
+                        <td style="width:15%;"><%= document.docDate.slice(0,4) %>-<%= document.docDate.slice(4,6) %>-<%= document.docDate.slice(6) %></td>
+                        <td style="width:70%;"><%= document.docEngTitle %></td>
+                        <td style="width:15%;"><a href="/rw-admin/delete-post/<%= document._id %>" class="btn btn-danger">Delete</a></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <form action="/rw-admin/logout" method="POST">
+            <button type="submit" class="my-2 mx-4 btn btn-warning">Logout</button>
+        </form>
+    </body>    
+</html>
+

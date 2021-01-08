@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang>
+    <head>
+        <meta charset="UTF-8">
+        <title>Richwell IR Administration</title>
+        <link rel="Shortcut Icon" href="/img/favicon-rw.ico" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,user-scalable=no" />
+        <link rel="stylesheet" text="text/css" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" text="text/css" href="/css/style.css" />
+        <style>
+            .top-bar {
+                background-color: #22a52d;
+                color: #e6d81a;
+                padding: 20px 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid top-bar">
+            <h1>Landrich Holding Limited</h1>
+            <h2>Manage IR Files</h2>
+        </div>
+        <div class="container">
+            <h5>Please select the type of documents first:</h5>
+            <ul>
+                <li><a href="/rw-admin/announcement">Announcements</a></li>
+                <li><a href="/rw-admin/circular">Circulars</a></li>
+                <li><a href="/rw-admin/financial">Financial Reports</a></li>
+                <li><a href="/rw-admin/prospectus">Propsectus</a></li>
+                <li><a href="/rw-admin/return">Other Returns</a></li>
+                <li><a href="/rw-admin/cg">Corporate Governance</a></li>
+            </ul>    
+        </div>
+        <form action="/rw-admin/logout" method="POST">
+            <button type="submit" class="my-2 mx-4 btn btn-warning">Logout</button>
+        </form>
+    </body>
+</html>

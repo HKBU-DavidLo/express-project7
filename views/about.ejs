@@ -1,0 +1,175 @@
+<%- include('./includes/head.ejs') %>
+
+<div class="about-banner-box">
+            
+</div>
+<div class="container mt-5">
+    <h1 class="text-uppercase text-center m-5"><%= __('Landrich Holding Limited') %></h1>
+    <ul class="nav nav-tabs nav-justified flex-column flex-md-row" role="tablist">
+        <li class="nav-item">
+            <a href="#profile" class="nav-link active" data-toggle="tab" role="tab"><%= __('company profile') %></a>
+        </li>
+        <li class="nav-item">
+            <a href="#board" class="nav-link" data-toggle="tab" role="tab"><%= __('BoD') %></a>
+        </li>
+        <li class="nav-item">
+            <a href="#milestone" class="nav-link" data-toggle="tab" role="tab"><%= __('milestones') %></a>
+        </li>
+        <li class="nav-item">
+            <a href="#strength" class="nav-link" data-toggle="tab" role="tab"><%= __('Strengths') %></a>
+        </li>
+        <li class="nav-item">
+            <a href="#certificates" class="nav-link" data-toggle="tab" role="tab"><%= __('Certificates') %></a>
+        </li>
+    </ul>
+    <div class="tab-content responsive px-4">
+        <div class="tab-pane active" id="profile" role="tabpanel">
+            <div class="container-fluid">
+                <div class="row mt-3">
+                    <div class="col py-3">
+                        <h4 style="color: #007c89;"><%= __('company profile')%></h4>
+                        <p class="my-2 text-height-1"><%= __('company profile des') %></p>
+                        <h5 class="my-2 text-height-1" style="color: #007c89;"><%= __('principal business') %></h5>
+                        <p class="my-2 text-height-1"><%= __('principal business des-1') %></p>
+                        <p class="my-2 text-height-1"><%= __('principal business des-2') %></p>
+                        <p class="my-2 text-height-1"><%= __('principal business des-3') %></p>
+                        <p class="my-2 text-height-1"><%= __('principal business des-4') %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="board" role="tabpanel">
+            <div class="container-fluid">
+                <div class="row mt-3">
+                    <div class="col py-3">
+                        <h4 style="color: #007c89;"><%= __('BoD') %></h4>
+                        <h5><%= __('EDs') %></h5>
+                        <ul>
+                            <li><%= __('KK Tsui') %></li>
+                            <li><%= __('Ian Tsui') %></li>
+                            <li><%= __('Janis Tsui') %></li>
+                        </ul>
+                        <h5><%= __('INEDs') %></h5>
+                        <ul>
+                            <li><%= __('Lee Yan Kit') %></li>
+                            <li><%= __('Lee Kin Kee') %></li>
+                            <li><%= __('Derek Kwong') %></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="milestone" role="tabpanel">
+            <div class="container-fluid mt-5 mb-5">
+                <h4 class="text-center" style="color: #007c89;"><%= __('milestones') %></h4>
+                <table cellpadding="0" cellspacing="0" style="width: 650px; border: 0;" class="table mx-auto my-4">     
+                    <thead style="font-weight: bold; margin-bottom: 20px;">
+                        <td style="width: 120px;"><%= __('Year') %></td>
+                        <td style="width: 480px;"><%= __('Event') %></td>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width: 120px;">1993</td>
+                            <td style="width: 120px;"><%= __('1993 event') %></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 120px;">2006</td>
+                            <td style="width: 120px;"><%= __('2006 event') %></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 120px;">2007</td>
+                            <td style="width: 120px;"><%= __('2007 event') %></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 120px;">2009</td>
+                            <td style="width: 120px;">
+                                <ul>
+                                    <li><%= __('2009 event-1') %></li>
+                                    <li><%= __('2009 event-2') %></li>
+                                    <li><%= __('2009 event-3') %></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 120px;">2013</td>
+                            <td style="width: 120px;"><%= __('2013 event') %></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 120px;">2014</td>
+                            <td style="width: 120px;">
+                                <ul>
+                                    <li><%= __('2014 event-1') %></li>
+                                    <li><%= __('2014 event-2') %></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 120px;">2016</td>
+                            <td style="width: 120px;"><%= __('2016 event') %></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 120px;">2018</td>
+                            <td style="width: 120px;"><%= __('2018 event') %></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 120px;">2019</td>
+                            <td style="width: 120px;"><%= __('2019 event') %></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 120px;">2020</td>
+                            <td style="width: 120px;"><%= __('2020 event') %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="strength" role="tabpanel">
+            <div class="container-fluid mt-4 mb-5">
+                <h4 style="color: #007c89;"><%= __('Compet Strengths') %></h4>
+                <div class="row mt-3">
+                    <ul class="list-unstyled">
+                        <li><span class="mx-3"><i class="fas fa-chevron-right text-warning"></i></span><%= __('strength-1') %></li>
+                        <li><span class="mx-3"><i class="fas fa-chevron-right text-warning"></i></span><%= __('strength-2') %></li>
+                        <li><span class="mx-3"><i class="fas fa-chevron-right text-warning"></i></span><%= __('strength-3') %></li>
+                        <li><span class="mx-3"><i class="fas fa-chevron-right text-warning"></i></span><%= __('strength-4') %></li>                     
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="certificates" role="tabpanel">
+            <div class="container-fluid mt-4 mb-5">
+                <h4 style="color: #007c89;"><%= __('licenses permits') %></h4>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="polaroid">
+                            <img class="cert-img" src="img/RCELISO90012015.png" alt="<%= __('RCEL ISO9001') %>">
+                            <div class="cert-container">
+                                <p><%= __('RCEL ISO9001') %></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="polaroid">
+                            <img class="cert-img" src="img/RELISO140012015.png" alt="<%= __('REL ISO14001') %>">
+                            <div class="cert-container">
+                                <p><%= __('REL ISO14001') %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="emp-box"></div>
+</div>
+
+<%- include('./includes/end.ejs') %>
