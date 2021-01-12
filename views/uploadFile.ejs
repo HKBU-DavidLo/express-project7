@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" text="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" text="text/css" href="/css/style.css" />
+    <title>Upload File</title>
+    <style>
+        body {
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="ml-3 mt-4">Please Upload <%= language %> Version:</h1>
+    <form action="<%= language == 'Chinese' ? '/rw-admin/upload-file' : '/rw-admin/upload-complete' %>" class="post-form" method="post" enctype="multipart/form-data">
+        <div class="mx-5">
+            <label for="uploadFileName">Filename to be saved: </label>
+            <input type="text" class="form-control my-4 p-2" id="filename" name="uploadFileName" value="<%= (language == 'Chinese' ? 'chi' : 'eng/') + filename %>" readonly />
+        </div>
+        <div class="mx-5">
+            <input type="file" class="form-control my-4 p-2" name="file" placeholder="filename" required>
+        </div>
+        <button type="submit" class="btn btn-info ml-3 mt-3">Upload and Next</button>
+    </form>
+    <p>Note: Please complete all uploads before logging out or closing the browser.</p>
+</body>
+</html>

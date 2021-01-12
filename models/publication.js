@@ -11,13 +11,13 @@ const PublicationSchema = new Schema({
 })
 
 PublicationSchema.virtual('chiUrl').get(function() {
-    let filepath = '/ir/chi/' + this.docType + '/' + 
+    let filepath = 'chi/' + this.docType + '/' + 
         this.docType + this.docDate + this.docTime + '.pdf'
     return filepath
 })
 
 PublicationSchema.virtual('engUrl').get(function() {
-    let filepath = '/ir/eng/' + this.docType + '/' + 
+    let filepath = 'eng/' + this.docType + '/' + 
         this.docType + this.docDate + this.docTime + '.pdf'
     return filepath
 })

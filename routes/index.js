@@ -131,12 +131,12 @@ router.get('/:locale/investors', async function(req, res, next) {
     docUrl = 'chiUrl'
   }
 
-  const announcements = await Publication.find({ docType: "ann" })
-  const circulars = await Publication.find({ docType: "circular" })
-  const financials = await Publication.find({ docType: "fin" })
-  const prospectuses = await Publication.find({ docType: "prospectus" })
-  const returns = await Publication.find({ docType: "return" })
-  const cgs = await Publication.find({ docType: "cg" })
+  const announcements = await Publication.find({ docType: "ann" }).sort('docDate')
+  const circulars = await Publication.find({ docType: "circular" }).sort('docDate')
+  const financials = await Publication.find({ docType: "fin" }).sort('docDate')
+  const prospectuses = await Publication.find({ docType: "prospectus" }).sort('docDate')
+  const returns = await Publication.find({ docType: "return" }).sort('docDate')
+  const cgs = await Publication.find({ docType: "cg" }).sort('docDate')
 
   res.render('investors', {
     pageTitle: pageTitle,
@@ -147,7 +147,7 @@ router.get('/:locale/investors', async function(req, res, next) {
     prospectuses: prospectuses,
     returns: returns,
     cgs: cgs,
-    docTitle, docTitle,
+    docTitle: docTitle,
     docUrl: docUrl
   })
 })

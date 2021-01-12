@@ -36,16 +36,18 @@
                     <div class="row mt-3">
                         <div class="col py-3">
                             <h4 style="color: #007c89;"><%= __('Announcements') %></h4>
-                            <table cellpadding="0" cellspacing="0" style="width: 650px; border: 0;" class="table mx-auto my-4">     
+                            <table cellpadding="0" cellspacing="0" style="width: 670px; border: 0;" class="table mx-auto my-4">     
                                 <thead style="font-weight: bold; margin-bottom: 20px;">
-                                    <td style="width: 120px;"><%= __('Date') %></td>
+                                    <td style="width: 150px;"><%= __('Date') %></td>
                                     <td style="width: 480px;"><%= __('Title') %></td>
+                                    <td style="width: 40px;"><%= __('Download') %></td>
                                 </thead>
                                 <tbody>
                                     <% announcements.forEach(function(announcement) { %>
                                         <tr>
-                                            <td style="width: 120px;"><%= announcement.docDate.slice(0,4) %>-<%= announcement.docDate.slice(4,6) %>-<%= announcement.docDate.slice(6) %></td>
-                                            <td style="width: 480px;"><a href="<%= announcement[docUrl] %>"><%= announcement[docTitle] %></a></td>
+                                            <td style="width: 150px;"><%= announcement.docDate.slice(0,4) %>-<%= announcement.docDate.slice(4,6) %>-<%= announcement.docDate.slice(6) %></td>
+                                            <td style="width: 480px;"><p><%= announcement[docTitle] %></p></td>
+                                            <td style="width: 40px;"><a href="https://express-p7.s3.ap-northeast-2.amazonaws.com/<%= announcement[docUrl] %>"><img alt="download" src="/img/dl.png" width="40" /></a></td>
                                         </tr>
                                     <% }) %>
                                 </tbody>
@@ -60,16 +62,18 @@
                     <div class="row mt-3">
                         <div class="col py-3">
                             <h4 style="color: #007c89;"><%= __('Circulars') %></h4>
-                            <table cellpadding="0" cellspacing="0" style="width: 650px; border: 0;" class="table mx-auto my-4">     
+                            <table cellpadding="0" cellspacing="0" style="width: 670px; border: 0;" class="table mx-auto my-4">     
                                 <thead style="font-weight: bold; margin-bottom: 20px;">
-                                    <td style="width: 120px;"><%= __('Date') %></td>
+                                    <td style="width: 150px;"><%= __('Date') %></td>
                                     <td style="width: 480px;"><%= __('Title') %></td>
+                                    <td style="width: 40px;"><%= __('Download') %></td>
                                 </thead>
                                 <tbody>
                                     <% circulars.forEach(function(circular) { %>
                                         <tr>
-                                            <td style="width: 120px;"><%= circular.docDate.slice(0,4) %>-<%= circular.docDate.slice(4,6) %>-<%= circular.docDate.slice(6) %></td>
-                                            <td style="width: 480px;"><a href="<%= circular[docUrl] %>"><%= circular[docTitle] %></a></td>
+                                            <td style="width: 150px;"><%= circular.docDate.slice(0,4) %>-<%= circular.docDate.slice(4,6) %>-<%= circular.docDate.slice(6) %></td>
+                                            <td style="width: 480px;"><p><%= circular[docTitle] %></p></td>
+                                            <td style="width: 40px;"><a href="https://express-p7.s3.ap-northeast-2.amazonaws.com/<%= circular[docUrl] %>"><img alt="download" src="/img/dl.png" width="40" /></a></td>
                                         </tr>
                                     <% }) %>
                                 </tbody>
@@ -84,16 +88,18 @@
                     <div class="row mt-3">
                         <div class="col py-3">
                             <h4 style="color: #007c89;"><%= __('Financials') %></h4>
-                            <table cellpadding="0" cellspacing="0" style="width: 650px; border: 0;" class="table mx-auto my-4">     
+                            <table cellpadding="0" cellspacing="0" style="width: 670px; border: 0;" class="table mx-auto my-4">     
                                 <thead style="font-weight: bold; margin-bottom: 20px;">
-                                    <td style="width: 120px;"><%= __('Date') %></td>
+                                    <td style="width: 150px;"><%= __('Date') %></td>
                                     <td style="width: 480px;"><%= __('Title') %></td>
+                                    <td style="width: 40px;"><%= __('Download') %></td>
                                 </thead>
                                 <tbody>
                                     <% financials.forEach(function(financial) { %>
                                         <tr>
-                                            <td style="width: 120px;"><%= financial.docDate.slice(0,4) %>-<%= financial.docDate.slice(4,6) %>-<%= financial.docDate.slice(6) %></td>
-                                            <td style="width: 480px;"><a href="<%= financial[docUrl] %>"><%= financial[docTitle] %></a></td>
+                                            <td style="width: 150px;"><%= financial.docDate.slice(0,4) %>-<%= financial.docDate.slice(4,6) %>-<%= financial.docDate.slice(6) %></td>
+                                            <td style="width: 480px;"><p><%= financial[docTitle] %></p></td>
+                                            <td style="width: 40px;"><a href="https://express-p7.s3.ap-northeast-2.amazonaws.com/<%= financial[docUrl] %>"><img alt="download" src="/img/dl.png" width="40" /></a></td>
                                         </tr>
                                     <% }) %>
                                 </tbody>
@@ -108,16 +114,18 @@
                     <div class="row mt-3">
                         <div class="col py-3">
                             <h4 style="color: #007c89;"><%= __('Other Returns') %></h4>
-                            <table cellpadding="0" cellspacing="0" style="width: 650px; border: 0;" class="table mx-auto my-4">     
+                            <table cellpadding="0" cellspacing="0" style="width: 670px; border: 0;" class="table mx-auto my-4">     
                                 <thead style="font-weight: bold; margin-bottom: 20px;">
-                                    <td style="width: 120px;"><%= __('Date') %></td>
+                                    <td style="width: 150px;"><%= __('Date') %></td>
                                     <td style="width: 480px;"><%= __('Title') %></td>
+                                    <td style="width: 45px;"><%= __('Download') %></td>
                                 </thead>
                                 <tbody>
                                     <% returns.forEach(function(document) { %>
                                         <tr>
-                                            <td style="width: 120px;"><%= document.docDate.slice(0,4) %>-<%= document.docDate.slice(4,6) %>-<%= document.docDate.slice(6) %></td>
-                                            <td style="width: 480px;"><a href="<%= document[docUrl] %>"><%= document[docTitle] %></a></td>
+                                            <td style="width: 150px;"><%= document.docDate.slice(0,4) %>-<%= document.docDate.slice(4,6) %>-<%= document.docDate.slice(6) %></td>
+                                            <td style="width: 480px;"><p><%= document[docTitle] %></p></td>
+                                            <td style="width: 40px;"><a href="https://express-p7.s3.ap-northeast-2.amazonaws.com/<%= document[docUrl] %>"><img alt="download" src="/img/dl.png" width="40" /></a></td>
                                         </tr>
                                     <% }) %>
                                 </tbody>
@@ -132,16 +140,18 @@
                     <div class="row mt-3">
                         <div class="col py-3">
                             <h4 style="color: #007c89;"><%= __('Prospectus') %></h4>
-                            <table cellpadding="0" cellspacing="0" style="width: 650px; border: 0;" class="table mx-auto my-4">     
+                            <table cellpadding="0" cellspacing="0" style="width: 670px; border: 0;" class="table mx-auto my-4">     
                                 <thead style="font-weight: bold; margin-bottom: 20px;">
-                                    <td style="width: 120px;"><%= __('Date') %></td>
+                                    <td style="width: 150px;"><%= __('Date') %></td>
                                     <td style="width: 480px;"><%= __('Title') %></td>
+                                    <td style="width: 40px;"><%= __('Download') %></td>
                                 </thead>
                                 <tbody>
                                     <% prospectuses.forEach(function(prospectus) { %>
                                         <tr>
-                                            <td style="width: 120px;"><%= prospectus.docDate.slice(0,4) %>-<%= prospectus.docDate.slice(4,6) %>-<%= prospectus.docDate.slice(6) %></td>
-                                            <td style="width: 480px;"><a href="<%= prospectus[docUrl] %>"><%= prospectus[docTitle] %></a></td>
+                                            <td style="width: 150px;"><%= prospectus.docDate.slice(0,4) %>-<%= prospectus.docDate.slice(4,6) %>-<%= prospectus.docDate.slice(6) %></td>
+                                            <td style="width: 480px;"><p><%= prospectus[docTitle] %></p></td>
+                                            <td style="width: 40px;"><a href="https://express-p7.s3.ap-northeast-2.amazonaws.com/<%= prospectus[docUrl] %>"><img alt="download" src="/img/dl.png" width="40" /></a></td>
                                         </tr>
                                     <% }) %>
                                 </tbody>

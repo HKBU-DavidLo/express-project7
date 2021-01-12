@@ -3,16 +3,22 @@ const router = express.Router()
 const path = require('path')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
-const formidable = require('formidable')
 const fs = require('fs')
 const Publication = require('../models/publication')
 const session = require('express-session')
 const mongoose = require('mongoose')
 const MongoStore = require('connect-mongo')(session)
+const multer = require('multer')
+const multerS3 = require('multer-s3')
 const aws = require('aws-sdk')
 
-aws.config.region = 'ap-northeast-2'
-const S3_BUCKET = process.env.S3_BUCKET
+aws.config.update({
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  region: 'ap-northeast-2'
+})
+
+const s3 = new aws.S3()
 
 router.use(bodyParser.urlencoded({ extended: false }))
 router.use(bodyParser.json())
@@ -45,6 +51,21 @@ function isLoggedIn(req, res, next) {
   }
 }
 
+const upload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: 'express-p7',
+    metadata: (req, file, cb) => {
+      console.log('[metadata]: ', file.fieldname)
+      cb(null, { fieldName: file.fieldname })
+    },
+    key: (req, file, cb) => {
+      console.log('[upload -> key]: ', file)
+      cb(null, req.body.uploadFileName)
+    }
+  })
+})
+
 router.get('/', (req, res, next) => {
   res.render('login')
 })
@@ -62,64 +83,48 @@ router.post('/process_login', (req, res, next) => {
   if (username === process.env.ADMIN_USERNAME && password === process.env.ADMIN_PWD) {
     req.session.loggedIn = true
     console.log(req.session)
-    res.render('add_post')
+    res.render('add_post', { message: '' })
   } else {
     res.redirect('/rw-admin?msg=fail')
   }
 })
 
-////////// TESTING //////////////////
-router.get('/test', (req, res, next) => {
-  res.render('add_post')
-})
-////////// TESTING //////////////////
-
 router.post('/add-post', isLoggedIn, (req, res, next) => {
-  const form = new formidable.IncomingForm()
-  form.uploadDir = path.join(__dirname, '..', 'public', 'ir')
-  let docDate, engTitle, TCTitle, SCTitle, docType
-  const s3 = new aws.S3()
-
-  form.parse(req, function(err, fields, files) {
-      let formObj = JSON.parse(JSON.stringify(fields))
-      docDate = formObj.doc_date.replace(/-/g, '')
-      engTitle = formObj.engTitle
-      TCTitle = formObj.TCTitle
-      SCTitle = formObj.SCTitle
-      docType = formObj.gridRadios
-      let newfileNames = []
-      let timeNow = Date.now().toString()
-      newfileNames.push(path.join('chi', docType, docType + docDate + timeNow + '.pdf'))
-      newfileNames.push(path.join('eng', docType, docType + docDate + timeNow + '.pdf'))
-      //newfileNames.push('chi/' + docType + '/' + docType + docDate + timeNow + '.pdf')
-      //newfileNames.push('eng/' + docType + '/' + docType + docDate + timeNow + '.pdf')
-      let oldPaths = []
-      oldPaths.push(JSON.parse(JSON.stringify(files)).chi_file.path)
-      oldPaths.push(JSON.parse(JSON.stringify(files)).eng_file.path)
-      for (let i=0; i<2; i++) {
-          fs.rename(oldPaths[i], path.join(form.uploadDir, newfileNames[i]), (err) => {
-              if (err) throw err
-          })
-      }
-
-      
-      let publication = new Publication({
-          docEngTitle: engTitle,
-          docTCTitle: TCTitle,
-          docSCTitle: SCTitle,
-          docDate: docDate,
-          docType: docType,
-          docTime: timeNow
-      })
-      publication.save()
-          .then(pub => {
-              console.log('publication saved')
-          })
-          .catch(err => {
-              console.error(err)
-          })
-      res.send('done')
+  let docDate = req.body.doc_date.toString().replace(/-/g, '')
+  let engTitle = req.body.engTitle
+  let TCTitle = req.body.TCTitle
+  let SCTitle = req.body.SCTitle
+  let docType = req.body.gridRadios
+  let timeNow = Date.now().toString()
+  let filename = `/${docType}/${docType}${docDate}${timeNow}.pdf`
+  console.log(filename)
+  let publication = new Publication({
+    docEngTitle: engTitle,
+    docTCTitle: TCTitle,
+    docSCTitle: SCTitle,
+    docDate: docDate,
+    docType: docType,
+    docTime: timeNow
   })
+  publication.save()
+    .then(pub => {
+      console.log('publication saved')
+      res.render('uploadFile', { filename: filename, language: "Chinese" })
+    })
+    .catch(err => {
+      console.log('Cannot be saved')
+      console.error(err)
+    })
+})
+
+router.post('/upload-file', upload.single('file'), (req, res, next) => {
+  let filename = req.body.uploadFileName.slice(4)
+  console.log('[processing upload-file]: ', filename)
+  res.render('uploadFile', { filename: filename, language: 'English' })
+})
+
+router.post('/upload-complete', upload.single('file'), (req, res, next) => {
+  res.render('add_post', { message: 'upload documents completed' })
 })
 
 router.get('/manage', isLoggedIn, (req, res, next) => {
@@ -161,9 +166,27 @@ router.get('/delete-post/:id', isLoggedIn, async (req, res, next) => {
   res.render('delete_post', { document: document })
 })
 
-router.post('/delete-post/:id', isLoggedIn, (req, res, next) => {
+router.post('/delete-post/:id', isLoggedIn, async (req, res, next) => {
+  const document = await Publication.findOne({ _id: req.params.id })
+  let chiS3Params = {
+    Bucket: 'express-p7',
+    Key: document.chiUrl
+  }
+  let engS3Params = {
+    Bucket: 'express-p7',
+    Key: document.engUrl
+  }
+  s3.deleteObject(chiS3Params, function(err, data) {
+    if (err) console.log(err, err.stack)
+    else console.log()
+  })
+  s3.deleteObject(engS3Params, function(err, data) {
+    if (err) console.log(err, err.stack)
+    else console.log()
+  })
+
   Publication.deleteOne({ _id: req.params.id })
-    .then(result => res.send('document deleted'))
+    .then(result => res.render('add_post', { message: 'delete documents completed' }))
     .catch(err => console.error(err))
 })
 
