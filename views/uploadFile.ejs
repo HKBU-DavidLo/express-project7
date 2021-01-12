@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-    <h1 class="ml-3 mt-4">Please Upload <%= language %> Version:</h1>
+    <h1 class="ml-3 mt-4">Please Upload <%= language == 'Chinese' ? '中文' : 'English' %> Version:</h1>
     <form action="<%= language == 'Chinese' ? '/rw-admin/upload-file' : '/rw-admin/upload-complete' %>" class="post-form" method="post" enctype="multipart/form-data">
         <div class="mx-5">
             <label for="uploadFileName">Filename to be saved: </label>

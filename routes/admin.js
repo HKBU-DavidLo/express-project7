@@ -109,7 +109,7 @@ router.post('/add-post', isLoggedIn, (req, res, next) => {
   publication.save()
     .then(pub => {
       console.log('publication saved')
-      res.render('uploadFile', { filename: filename, language: "中文" })
+      res.render('uploadFile', { filename: filename, language: "Chinese" })
     })
     .catch(err => {
       console.log('Cannot be saved')
