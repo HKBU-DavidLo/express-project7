@@ -131,12 +131,12 @@ router.get('/:locale/investors', async function(req, res, next) {
     docUrl = 'chiUrl'
   }
 
-  const announcements = await Publication.find({ docType: "ann" }).sort('docDate')
-  const circulars = await Publication.find({ docType: "circular" }).sort('docDate')
-  const financials = await Publication.find({ docType: "fin" }).sort('docDate')
-  const prospectuses = await Publication.find({ docType: "prospectus" }).sort('docDate')
-  const returns = await Publication.find({ docType: "return" }).sort('docDate')
-  const cgs = await Publication.find({ docType: "cg" }).sort('docDate')
+  const announcements = await Publication.find({ docType: "ann" }).sort({docDate:-1})
+  const circulars = await Publication.find({ docType: "circular" }).sort({docDate:-1})
+  const financials = await Publication.find({ docType: "fin" }).sort({docDate:-1})
+  const prospectuses = await Publication.find({ docType: "prospectus" }).sort({docDate:-1})
+  const returns = await Publication.find({ docType: "return" }).sort({docDate:-1})
+  const cgs = await Publication.find({ docType: "cg" }).sort({docDate:-1})
 
   res.render('investors', {
     pageTitle: pageTitle,

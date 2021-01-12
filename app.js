@@ -23,7 +23,7 @@ mongoose.connect(uri, {
 }).then(() => {
     console.log("mongoose is connected")
 }).catch((err) => {
-    console.log('mongoose connection error', err)
+    console.log(`mongoose connection ${uri} error`, err)
 })
 
 // view engine setup
