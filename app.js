@@ -15,7 +15,7 @@ let indexRouter = require('./routes/index')
 let adminRouter = require('./routes/admin')
 
 
-let uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PWD}@cluster0.tpjgn.azure.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`
+let uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PWD}@cluster0.1dipg.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
